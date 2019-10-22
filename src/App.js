@@ -12,8 +12,24 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'Movies'
+            title: 'Movies',
+            loginScreen: []
         }
+        this.hideLoginScreen = this.hideLoginScreen.bind(this);
+    }
+
+    componentWillMount() {
+        const loginScreen = [];
+        loginScreen.push(<LoginScreen hideLoginScreen={ this.hideLoginScreen }/>);
+        this.setState({
+            loginScreen: loginScreen
+        });
+    }
+
+    hideLoginScreen() {
+        this.setState({
+            loginScreen: []
+        })
     }
 
     render() {
@@ -29,7 +45,7 @@ class App extends Component {
 
                 <Router>
                     <Header title={this.state.title}/>
-                    <LoginScreen/>
+                    { this.state.loginScreen }
                     <div>
                         <Switch>
                             <Route exact path='/' component={Movies}/>

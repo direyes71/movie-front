@@ -8,6 +8,7 @@ class Login extends Component {
             username:'',
             password:''
         };
+        this.hideLoginScreen = this.props.hideLoginScreen.bind(this);
     }
     render() {
         return (
@@ -47,6 +48,7 @@ class Login extends Component {
             .then(data_response => {
                 localStorage.setItem('token', data_response.access);
                 localStorage.setItem('refresh_token', data_response.refresh);
+                this.hideLoginScreen();
             });
     }
 

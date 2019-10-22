@@ -25,6 +25,7 @@ export default class Movies extends Component {
     render() {
         return (
             <div>
+                <br/>
                 <div className="container">
                     <div className="container">
                         <button className="btn btn-default" onClick={this.getRecommendedMovies}>Recommend me movies</button>

@@ -13,10 +13,11 @@ class LoginScreen extends Component {
             loginMessage: '',
             isLogin: true
         };
+        this.hideLoginScreen = this.props.hideLoginScreen.bind(this);
     }
     componentWillMount() {
         const loginScreen = [];
-        loginScreen.push(<Login/>);
+        loginScreen.push(<Login hideLoginScreen={ this.hideLoginScreen }/>);
         const loginMessage = 'Not registered yet, please register';
         this.setState({
             loginScreen: loginScreen,
